@@ -44,7 +44,7 @@ describe('CategoryService', () => {
     });
   });
 
-  describe('find category By Id',  () => {
+  describe('find Category',  () => {
     it('Should be return a category when correct id is provided', async () => {
       const cat = FakeCategory.getCategory()
       mockRepository.findOne.mockReturnValue(cat)

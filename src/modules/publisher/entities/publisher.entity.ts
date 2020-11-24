@@ -1,7 +1,11 @@
-import { Author } from "src/authors/entities/author.entity"
-import { Book } from "src/books/entities/book.entity"
-import { Base } from "src/crosscutting/base.entity"
+// import { Base } from '@cross/base.entity';
+// import { Base } from '@cross/base.entity'
+
 import { Column, Entity, OneToMany } from "typeorm"
+// import { Book } from "@modules/books/entities/book.entity"
+import { Author } from "../../authors/entities/author.entity"
+import { Base } from "../../../crosscutting/base.entity"
+import { Book } from '../../books/entities/book.entity'
 
 @Entity('publishers')
 export class Publisher extends Base {

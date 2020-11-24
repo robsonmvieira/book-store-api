@@ -1,10 +1,9 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import  CategoryService  from './category.service';
-import FakeCategory from '../utils/tests/category.fake'
-import Category from './entities/category.entity';
+import { Category } from './entities/category.entity';
 import { InternalServerErrorException, NotFoundException } from '@nestjs/common';
-
+import { FakeCategory } from '../../utils/tests/category.fake'
 
 describe('CategoryService', () => {
   let service: CategoryService;

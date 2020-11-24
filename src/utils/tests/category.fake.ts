@@ -1,5 +1,6 @@
-import Category from '../../category/entities/category.entity'
-export default class FakeCategory {
+import { Category } from './../../modules/category/entities/category.entity';
+
+export class FakeCategory {
 
   static getCategory (): Category {
     const category = new Category

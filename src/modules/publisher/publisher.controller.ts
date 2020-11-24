@@ -3,7 +3,7 @@ import { PublisherService } from './publisher.service';
 import { CreatePublisherDto } from './dto/create-publisher.dto';
 import { UpdatePublisherDto } from './dto/update-publisher.dto';
 
-@Controller('publisher')
+@Controller('publishers')
 export class PublisherController {
   constructor(private readonly publisherService: PublisherService) {}
 

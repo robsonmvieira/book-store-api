@@ -1,6 +1,8 @@
-import { Author } from "src/authors/entities/author.entity";
-import { Base } from "src/crosscutting/base.entity";
-import { Publisher } from "src/publisher/entities/publisher.entity";
+import { Base } from "../../../crosscutting/base.entity"
+
+// import { Base } from'@cross/base.entity'
+import { Author } from "../../authors/entities/author.entity";
+import { Publisher } from "../../publisher/entities/publisher.entity";
 import { Column, Entity, ManyToMany, ManyToOne } from "typeorm";
 
 @Entity('books')

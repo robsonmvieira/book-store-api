@@ -2,33 +2,34 @@ import { Controller, Get, Post, Body, Put, Param, Delete } from '@nestjs/common'
 import { PublisherService } from './publisher.service';
 import { CreatePublisherDto } from './dto/create-publisher.dto';
 import { UpdatePublisherDto } from './dto/update-publisher.dto';
+import { Publisher } from './entities/publisher.entity';
 
 @Controller('publishers')
 export class PublisherController {
   constructor(private readonly publisherService: PublisherService) {}
 
   @Post()
-  create(@Body() createPublisherDto: CreatePublisherDto) {
+  async create(@Body() createPublisherDto: CreatePublisherDto): Promise<Publisher> {
     return this.publisherService.create(createPublisherDto);
   }
 
   @Get()
-  findAll() {
+  async findAll(): Promise<Publisher[]> {
     return this.publisherService.findAll();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.publisherService.findOne(+id);
+  async findOne(@Param('id') id: string): Promise<Publisher> {
+    return this.publisherService.findOne(id);
   }
 
   @Put(':id')
-  update(@Param('id') id: string, @Body() updatePublisherDto: UpdatePublisherDto) {
-    return this.publisherService.update(+id, updatePublisherDto);
+  async update(@Param('id') id: string, @Body() updatePublisherDto: UpdatePublisherDto): Promise<Publisher> {
+    return this.publisherService.update(id, updatePublisherDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.publisherService.remove(+id);
+  async remove(@Param('id') id: string): Promise<boolean> {
+    return this.publisherService.remove(id);
   }
 }

@@ -10,11 +10,8 @@ export class CreatePermissionDto {
 
   @ApiProperty()
   @IsString()
-  description?: string
+  description: string
 
   @ApiProperty()
-  slug?: string
-
-  @ApiProperty()
-  roles?: string[]
+  slug: string
 }

@@ -15,7 +15,7 @@ export class Role extends Base {
 
   @Column()
   slug?: string
-  @ManyToMany(() => Permission)
+  @ManyToMany(() => Permission, { eager: true })
   @JoinTable()
   permissions: Permission[]
 

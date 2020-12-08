@@ -16,7 +16,7 @@ export class CreateRoleDto {
   slug?: string
 
   @ApiProperty()
-  permissions?: string[]
+  permissions: string[]
 
   @ApiProperty()
   users?: string[]

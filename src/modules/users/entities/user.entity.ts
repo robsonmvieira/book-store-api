@@ -1,5 +1,7 @@
 import { Role } from "@modules/roles/entities/role.entity";
+
 import { Column, Entity, JoinTable, ManyToMany } from "typeorm";
+
 import { Base } from '../../../crosscutting/base.entity'
 
 @Entity('users')

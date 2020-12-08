@@ -1,3 +1,4 @@
+import { Role } from '@modules/roles/entities/role.entity';
 import { PartialType } from '@nestjs/mapped-types';
 import { ApiProperty } from '@nestjs/swagger';
 import { IsString } from 'class-validator';
@@ -15,8 +16,5 @@ export class UpdatePermissionDto extends PartialType(CreatePermissionDto) {
 
   @ApiProperty()
   slug?: string
-
-  @ApiProperty()
-  roles?: string[]
 
 }

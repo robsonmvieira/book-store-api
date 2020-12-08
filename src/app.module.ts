@@ -5,8 +5,9 @@ import { BooksModule } from './modules/books/books.module';
 import { CategoryModule } from './modules/category/category.module';
 import { PublisherModule } from './modules/publisher/publisher.module';
 import { UsersModule } from './modules/users/users.module';
+import { RolesModule } from './modules/roles/roles.module';
 @Module({
-  imports: [TypeOrmModule.forRoot(), CategoryModule, PublisherModule, AuthorsModule, BooksModule, UsersModule],
+  imports: [TypeOrmModule.forRoot(), CategoryModule, PublisherModule, AuthorsModule, BooksModule, UsersModule, RolesModule],
   controllers: [],
   providers: [],
 })

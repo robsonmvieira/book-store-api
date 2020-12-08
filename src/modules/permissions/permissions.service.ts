@@ -6,7 +6,8 @@ import { Repository } from 'typeorm';
 
 @Injectable()
 export class PermissionsService extends BaseService<Permission> {
-  constructor(@InjectRepository(Permission) resource: Repository<Permission>) {
+  constructor(@InjectRepository(Permission) protected  resource: Repository<Permission>) {
     super(resource)
   }
+
 }

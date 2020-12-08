@@ -1,8 +1,10 @@
-import { Column, Entity } from "typeorm";
+import { Role } from "@modules/roles/entities/role.entity";
+import { Column, Entity, JoinTable, ManyToMany } from "typeorm";
 import { Base } from '../../../crosscutting/base.entity'
+
 @Entity('users')
 export class User extends Base {
-  
+
   @Column()
   name: string
 
@@ -21,16 +23,12 @@ export class User extends Base {
 
   @Column()
   course: string
-  
+
   @Column()
   profile: string
 
-  role:
-
-  // @ManyToMany(() => Book, books => books.authors)
-  // books?: string
-
-  // @ManyToOne(() => Publisher, publisher => publisher.authors)
-  // publisher: Publisher
+  @ManyToMany(() => Role)
+  @JoinTable()
+  role: Role[]
 
 }

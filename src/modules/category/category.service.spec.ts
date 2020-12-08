@@ -48,7 +48,7 @@ describe('CategoryService', () => {
       const cat = FakeCategory.getCategory()
       mockRepository.findOne.mockReturnValue(cat)
 
-      const categories = await service.findOne(1)
+      const categories = await service.findOne('1')
 
       expect(categories).toMatchObject({name: cat.name})
     });
@@ -56,7 +56,7 @@ describe('CategoryService', () => {
     it('Should returns instanceOf NotFoundException when category is not Exists', async () => {
       mockRepository.findOne.mockReturnValue(null)
 
-      expect(service.findOne(2)).rejects.toBeInstanceOf(NotFoundException)
+      expect(service.findOne('2')).rejects.toBeInstanceOf(NotFoundException)
     });
   });
 
@@ -83,7 +83,7 @@ describe('CategoryService', () => {
       const id = 1;
       const data = { name: 'updated Name' }
       mockRepository.findOne.mockReturnValue({ id, name: data.name })
-      const result = await service.update(id, data)
+      const result = await service.update('id', data)
 
       expect(result).toMatchObject({ id, name: data.name })
 
@@ -91,14 +91,15 @@ describe('CategoryService', () => {
 
     it('Should returns instanceOf NotFoundException  when not be able to find a category by param', () => {
       mockRepository.findOne.mockReturnValue(null)
-      expect(service.findOne(3)).rejects.toBeInstanceOf(NotFoundException)
+      expect(service.findOne('3')).rejects.toBeInstanceOf(NotFoundException)
     });
   });
 
   describe('delete a Category',  () => {
     it('Should be able delete a category with correct Id', async () => {
       mockRepository.delete.mockReturnValue(true)
-      const result = await service.remove(1)
+      const result = await service.remove('valid_id')
+      console.log(result)
       expect(result).toBe(true)
 
     });
@@ -106,7 +107,7 @@ describe('CategoryService', () => {
     it('Should returns instanceOf NotFoundException  when not be able to find a category by param', () => {
       mockRepository.findOne.mockReturnValue(null)
       mockRepository.delete.mockReturnValue(null)
-      expect(service.remove(3)).rejects.toBeInstanceOf(NotFoundException)
+      expect(service.remove('3')).rejects.toBeInstanceOf(NotFoundException)
     });
   });
 

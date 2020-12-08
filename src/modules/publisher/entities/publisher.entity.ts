@@ -24,5 +24,4 @@ export class Publisher extends Base {
 
   @OneToMany(() => Book, books => books.authors)
   authors?: Author[]
-
 }

@@ -29,6 +29,6 @@ export class User extends Base {
 
   @ManyToMany(() => Role)
   @JoinTable()
-  role: Role[]
+  roles: Role[]
 
 }

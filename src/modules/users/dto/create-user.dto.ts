@@ -35,5 +35,5 @@ export class CreateUserDto {
   @ApiProperty()
   profile?: string
   @ApiProperty()
-  role?: string[]
+  roles?: string[]
 }

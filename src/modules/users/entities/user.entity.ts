@@ -20,7 +20,7 @@ export class User extends Base {
   @Column()
   semester: number
 
-  @Column()
+  @Column({ select: false })
   password: string
 
   @Column()

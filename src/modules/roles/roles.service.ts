@@ -5,6 +5,7 @@ import { Repository } from 'typeorm';
 import { Role } from './entities/role.entity';
 import { CreateRoleDto } from './dto/create-role.dto';
 import { Permission } from '../permissions/entities/permission.entity'
+
 @Injectable()
 export class RolesService extends BaseService<Role> {
   constructor(@InjectRepository(Role) protected resource: Repository<Role>,

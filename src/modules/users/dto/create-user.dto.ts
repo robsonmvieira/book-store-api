@@ -34,6 +34,8 @@ export class CreateUserDto {
 
   @ApiProperty()
   profile?: string
+
   @ApiProperty()
-  roles?: string[]
+  @IsNotEmpty({ message: 'Você precisa informar ao menos um perfil para o usuário' })
+  roles: string[]
 }

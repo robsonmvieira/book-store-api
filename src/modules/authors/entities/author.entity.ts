@@ -6,7 +6,7 @@ import { Publisher } from "../../publisher/entities/publisher.entity";
 import { Column, Entity, ManyToMany, ManyToOne } from "typeorm";
 
 @Entity('authors')
-export class Author extends Base{
+export class Author extends Base {
 
   @Column()
   name: string
@@ -19,11 +19,9 @@ export class Author extends Base{
   publisher_id: string
 
   @ManyToMany(() => Book, books => books.authors)
-  books?: string
+  books?: Book[]
 
-  @ManyToOne(() => Publisher, publisher => publisher.authors)
+  @ManyToOne(() => Publisher, publisher => publisher.authors, { eager: true })
   publisher: Publisher
-
-
 
 }

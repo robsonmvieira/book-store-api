@@ -1,26 +1,32 @@
-import { Injectable } from '@nestjs/common';
+import { BaseService } from '../../infra/BaseService.service';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { CreateAuthorDto } from './dto/create-author.dto';
-import { UpdateAuthorDto } from './dto/update-author.dto';
+import { Author } from './entities/author.entity';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { Publisher } from '../publisher/entities/publisher.entity';
 
 @Injectable()
-export class AuthorsService {
-  create(createAuthorDto: CreateAuthorDto) {
-    return 'This action adds a new author';
+export class AuthorsService extends BaseService<Author> {
+
+  constructor(
+    @InjectRepository(Author) protected resource: Repository<Author>,
+    @InjectRepository(Publisher) protected publisherRepo: Repository<Publisher>) {
+    super(resource);
   }
 
-  findAll() {
-    return `This action returns all authors`;
-  }
+  async create(data: CreateAuthorDto): Promise<Author> {
 
-  findOne(id: number) {
-    return `This action returns a #${id} author`;
-  }
+    const { publisher_id } = data
 
-  update(id: number, updateAuthorDto: UpdateAuthorDto) {
-    return `This action updates a #${id} author`;
-  }
+    const publisher = await this.publisherRepo.findOne(publisher_id)
 
-  remove(id: number) {
-    return `This action removes a #${id} author`;
+    if(!publisher) {
+      throw new BadRequestException('A editora informada não existe!')
+    }
+
+    data.publisher = publisher
+
+    return this.resource.save(data)
   }
 }

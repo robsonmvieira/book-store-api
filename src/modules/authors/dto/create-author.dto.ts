@@ -12,11 +12,11 @@ export class CreateAuthorDto {
 
   @ApiProperty()
   @IsEmail()
-  @IsNotEmpty({message: 'Esse campo não pode estar vazio'})
+  @IsNotEmpty({message: 'O email não pode estar vazio'})
   email: string
 
   @ApiProperty()
-  @IsNotEmpty({message: 'Esse campo não pode estar vazio'})
+  @IsNotEmpty({message: 'O id da editora não pode estar vazio'})
   publisher_id: string
 
   @ApiProperty()

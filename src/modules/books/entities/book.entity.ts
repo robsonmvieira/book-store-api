@@ -26,7 +26,7 @@ export class Book extends Base{
   @ManyToOne(() => Publisher, publisher => publisher.books)
   publisher: Publisher
 
-  @ManyToMany(() => Author, authors => authors.books)
+  @ManyToOne(() => Author, authors => authors.books)
   authors: Author[]
 
 }

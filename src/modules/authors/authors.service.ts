@@ -16,11 +16,9 @@ export class AuthorsService extends BaseService<Author> {
   }
 
   async create(data: CreateAuthorDto): Promise<Author> {
-
     const { publisher_id } = data
 
     const publisher = await this.publisherRepo.findOne(publisher_id)
-
     if(!publisher) {
       throw new BadRequestException('A editora informada não existe!')
     }

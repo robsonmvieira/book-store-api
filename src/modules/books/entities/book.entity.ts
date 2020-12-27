@@ -1,6 +1,5 @@
 import { Base } from "../../../crosscutting/base.entity"
 
-// import { Base } from'@cross/base.entity'
 import { Author } from "../../authors/entities/author.entity";
 import { Publisher } from "../../publisher/entities/publisher.entity";
 import { Column, Entity, ManyToMany, ManyToOne } from "typeorm";
@@ -26,7 +25,7 @@ export class Book extends Base{
   @ManyToOne(() => Publisher, publisher => publisher.books)
   publisher: Publisher
 
-  @ManyToOne(() => Author, authors => authors.books)
+  @ManyToMany(() => Author, authors => authors.books)
   authors: Author[]
 
 }

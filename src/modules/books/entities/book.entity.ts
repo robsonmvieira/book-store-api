@@ -22,6 +22,9 @@ export class Book extends Base{
   @Column()
   publisher_id: string
 
+  @Column()
+  image: string
+
   @ManyToOne(() => Publisher, publisher => publisher.books)
   publisher: Publisher
 

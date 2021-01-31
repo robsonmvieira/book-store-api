@@ -7,8 +7,21 @@ import { PublisherModule } from './modules/publisher/publisher.module';
 import { UsersModule } from './modules/users/users.module';
 import { RolesModule } from './modules/roles/roles.module';
 import { PermissionsModule } from './modules/permissions/permissions.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
+
 @Module({
-  imports: [TypeOrmModule.forRoot(), CategoryModule, PublisherModule, AuthorsModule, BooksModule, UsersModule, RolesModule, PermissionsModule],
+  imports: [
+    TypeOrmModule.forRoot(),
+    ServeStaticModule.forRoot( { rootPath: join(__dirname, '..', './uploads')}),
+    CategoryModule,
+    PublisherModule,
+    AuthorsModule,
+    BooksModule,
+    UsersModule,
+    RolesModule,
+    PermissionsModule
+  ],
   controllers: [],
   providers: [],
 })

@@ -30,6 +30,10 @@ export class CreateBookDto {
   publisher: Publisher
 
   @ApiProperty()
+  @IsNotEmpty({message: 'Você precisa informar uma imagem para o livro.'})
+  image: string
+
+  @ApiProperty()
   @IsNotEmpty({message: 'Você precisa informar ao  menos um Id dos autores(as)'})
   authors: Author[]
 }

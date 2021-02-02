@@ -12,7 +12,4 @@ export class PublisherService extends BaseService<Publisher> {
     super(resource)
   }
 
-  async findAll(): Promise<Publisher[]> {
-    return this.resource.find({ relations: ['books', 'authors']})
-  }
 }

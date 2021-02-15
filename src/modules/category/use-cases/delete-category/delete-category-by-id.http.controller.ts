@@ -7,7 +7,7 @@ export class DeleteCategoryByIdHttpController {
 
   constructor(private readonly categoryService: CategoryService) {}
 
-  @Get(routes.category.findOne)
+  @Get(routes.category.remove)
   async remove(@Param('id') id: string):Promise<boolean>{
     return this.categoryService.remove(id);
   }

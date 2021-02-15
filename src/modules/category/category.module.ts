@@ -5,6 +5,7 @@ import  CategoryController  from './category.controller';
 import  { Category }  from './entities/category.entity';
 import { FindCategoriesHttpController } from './use-cases/find-categories/find-categories.http.controller';
 import { FindCategoryByIdHttpController } from './use-cases/find-category-by-id/find-category-by-id.http.controller';
+import { DeleteCategoryByIdHttpController } from './use-cases/delete-category/delete-category-by-id.http.controller';
 
 @Module({
   imports: [
@@ -13,7 +14,8 @@ import { FindCategoryByIdHttpController } from './use-cases/find-category-by-id/
   controllers: [
     CategoryController,
     FindCategoriesHttpController,
-    FindCategoryByIdHttpController
+    FindCategoryByIdHttpController,
+    DeleteCategoryByIdHttpController
   ],
   providers: [CategoryService]
 })

@@ -15,11 +15,6 @@ export default class CategoryController {
     return this.categoryService.create(createCategoryDto);
   }
 
-  @Get()
-  async findAll(): Promise<Category[]> {
-    return this.categoryService.findAll();
-  }
-
   @Get(':id')
   async findOne(@Param('id') id: string): Promise<Category> {
     return this.categoryService.findOne(id);

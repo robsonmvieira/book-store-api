@@ -4,7 +4,7 @@ import { PublisherService } from "@modules/publisher/publisher.service";
 import { Controller, Get } from "@nestjs/common";
 
 @Controller()
-export class FindPublisherHttpController {
+export class FindPublishersHttpController {
 
   constructor(private readonly publisherService: PublisherService) {}
 

@@ -3,12 +3,14 @@ import { PublisherService } from './publisher.service';
 import { PublisherController } from './publisher.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Publisher } from './entities/publisher.entity';
-import { FindPublisherHttpController } from './use-cases/find-publishers/find-publishers.http.controller';
+import { FindPublishersHttpController } from './use-cases/find-publishers/find-publishers.http.controller';
+import { FindPublisherByIdHttpController } from './use-cases/find-publisher-by-id/find-publisher-by-id.http.controller';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Publisher])],
   controllers: [
-    FindPublisherHttpController,
+    FindPublishersHttpController,
+    FindPublisherByIdHttpController,
     PublisherController
   ],
   providers: [PublisherService]

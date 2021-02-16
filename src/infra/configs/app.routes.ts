@@ -1,5 +1,6 @@
 const publishersRoot = '/publishers'
 const categoryRoot = '/categories'
+const bookRoot = '/books'
 
 export const routes = {
   category: {
@@ -14,6 +15,12 @@ export const routes = {
     update: `${publishersRoot}/:id`,
     remove: `${publishersRoot}/:id`
   },
+  book: {
+    root: bookRoot,
+    findOne: `${bookRoot}/:id`,
+    update: `${bookRoot}/:id`,
+    remove: `${bookRoot}/:id`
+  }
 
 
 }

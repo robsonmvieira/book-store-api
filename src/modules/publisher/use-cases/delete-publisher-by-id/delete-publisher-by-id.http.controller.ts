@@ -8,7 +8,6 @@ export class DeletePublisherByIdHttpController {
 
   constructor(private readonly publisherService: PublisherService) {}
 
-
   @Delete(routes.publisher.remove)
   @ApiResponse({
     status: HttpStatus.BAD_REQUEST
